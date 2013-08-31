@@ -1,0 +1,108 @@
+// Place all the styles related to the Workouts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap";
+
+.linx{
+  
+  float:left;
+  margin-right:10px;
+}
+
+
+/* Table */
+
+#tabs{
+
+  width:700px;
+ 
+}
+#tabs2{
+
+  width:800px;
+ 
+}
+
+#wname{
+ 
+ width:230px;
+ 
+}
+
+#wday{
+
+width:45px;
+  
+}
+
+#enum{
+
+  width:165px;
+}
+
+#wopt{
+
+  width:165px;
+ 
+}
+
+
+#wday input {
+
+  width:75px;
+}
+
+#reps input {
+
+  width:75px;
+}
+
+.article {
+  h2 {
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 3px;
+  }
+}
+
+.questions {
+  list-style: none;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  > li {
+    margin: 20px 0;
+    padding: 0;
+  }
+}
+
+.answers {
+  list-style: upper-alpha;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+  > li {
+    margin: 5px 0;
+    margin-left: 25px;
+  }
+}
+
+form > fieldset {
+  border: none;
+  border: solid 1px #CCC;
+  padding: 10px 15px;
+  margin: 15px 0;
+  fieldset {
+    border: none;
+    margin: 0;
+    margin: 10px 0;
+    padding: 0;
+  }
+}
+
+textarea {
+  height: 40px;
+  width: 350px;
+  margin-top: 3px;
+}

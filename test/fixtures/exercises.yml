@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  exercise_type: MyString
+  target: MyString
+  info: MyText
+  outside_link: MyString
+
+two:
+  name: MyString
+  exercise_type: MyString
+  target: MyString
+  info: MyText
+  outside_link: MyString

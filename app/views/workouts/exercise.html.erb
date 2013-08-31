@@ -1,0 +1,29 @@
+<h1>My Exercise List</h1><br>
+
+<table id='tabs' class='table table-bordered'>
+  <thead>
+    <tr>
+      <th id='wname'>Workout Name</th>
+      <th id='ename'>Exercise Name</th>
+      <th id='etype'>Exercise Type</th>
+      <th id='emus'>Target Muscle(s)</th>
+      <th id='emus'>Exercise Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @exercises.each do |exercise| %>
+      <tr>
+        <td><%= link_to workout.exercise.name, exercise %></td>
+        <td><%= exercise.name %></td>
+        <td><%= exercise.exercise_type %></td>
+         <td><%= exercise.exercise_type %></td>
+        <td>
+         <p class='linx'> <%= link_to 'Display', exercise %> </p>
+         <p class='linx'> <%= link_to 'Edit', edit_workout_path(workout) %> </p>
+         <p class='linx'> <%= link_to 'Delete', exercise, method: :delete, data: { confirm: 'Are you sure?' } %> </p>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

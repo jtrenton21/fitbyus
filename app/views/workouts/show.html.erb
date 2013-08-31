@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Workout Name:</strong>
+  <%= @workout.name %>
+</p>
+<p>
+  <strong>Day:</strong>
+  <%= @workout.day %>
+</p>
+<ol class="exercises">
+<% @workout.exercises.each do |exercise| %>
+  <li>
+   <strong>Exercise Name:</strong> <%= exercise.name %><br>
+   <strong>Exercise Type:</strong> <%= exercise.exercise_type %><br>
+   <strong>Target Muscle(s):</strong> <%= exercise.target %><br>
+   <strong>Notes:</strong> <%= exercise.info %><br>
+    <ol class="reps">
+      <% exercise.reps.each do |rep| %> 
+      <li>
+       <strong> Rep Amount:</strong> <%= rep.rep_amount %><br>
+       <strong> Rep Weight:</strong> <%= rep.rep_weight %>
+      </li>
+      <% end %>
+    </ol>
+  </li>
+<% end %>
+</ol>
+
+<%= link_to 'Edit Workout', edit_workout_path(@workout) %> |
+<%= link_to 'Back to List', workouts_path %>

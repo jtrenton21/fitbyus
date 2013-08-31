@@ -1,0 +1,17 @@
+<fieldset>
+  <%= f.label :name, "Exercise Name" %>
+  <%= f.text_field :name %><br/>
+  <%= f.label :exercise_type, "Exercise Type" %>
+  <%= f.text_field :exercise_type %><br/>
+  <%= f.label :target, "Target Muscle(s)" %>
+  <%= f.text_field :target %><br/>
+  <%= f.label :info, "Additional Info" %>
+  <%= f.text_area :info %><br/>
+
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "Remove Exercise", '#', class: "remove_fields" %><br/>
+  <%= f.fields_for :reps do |builder| %>
+    <%= render 'rep_fields', f: builder %>
+  <% end %><br/>
+  <%= link_to_add_fields "Add Exercise Set", f, :reps %>
+</fieldset>

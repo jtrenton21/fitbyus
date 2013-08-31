@@ -1,0 +1,33 @@
+<h1>My Workout List</h1><br>
+
+<table id='tabs' class='table table-bordered'>
+  <thead>
+    <tr>
+      <th id='wname'>Workout Name</th>
+      <th id='wday'>Day</th>
+      <th id='enum'>Number of Exercises</th>
+      <th id='wopt'>Workout Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @workouts.each do |workout| %>
+      <tr>
+        <td><%= link_to workout.name, workout %></td>
+        <td><%= workout.day %></td>
+        <td><%= pluralize(workout.exercises.size, "Exercise") %></td>
+        <td>
+         <p class='linx'> <%= link_to 'Display', workout %> </p>
+         <p class='linx'> <%= link_to 'Edit', edit_workout_path(workout) %> </p>
+         <p class='linx'> <%= link_to 'Delete', workout, method: :delete, data: { confirm: 'Are you sure?' } %> </p>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Create New Workout', new_workout_path %><br>
+<%= link_to 'View Exercises', exercises_path %>
+
+    
+ 
+  
