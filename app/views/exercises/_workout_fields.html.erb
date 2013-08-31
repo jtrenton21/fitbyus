@@ -1,0 +1,4 @@
+<fieldset>
+<%= f.label :workout_id, "Select Workout" %>
+<%= f.select :workout_id, Workout.all.collect {|workout| [ workout.name, workout.id ] } %>
+</fieldset>

@@ -6,6 +6,7 @@ class ExercisesController < ApplicationController
 
   def show
     @exercise = Exercise.find(params[:id])
+    
   end
 
   def new
@@ -15,7 +16,7 @@ class ExercisesController < ApplicationController
   def create
     @exercise = Exercise.new(exercise_params)
     if @exercise.save
-      redirect_to @exercise, notice: "Successfully Created exercise."
+      redirect_to @exercise, notice: "Successfully Created Exercise."
     else
       render :new
     end
@@ -29,7 +30,7 @@ class ExercisesController < ApplicationController
     @exercise = Exercise.find(params[:id])
     if @exercise.update_attributes(exercise_params)
 
-      redirect_to @exercise, notice: "Successfully Updated exercise."
+      redirect_to @exercise, notice: "Successfully Updated Exercise."
     else
       render :edit
     end
@@ -38,7 +39,7 @@ class ExercisesController < ApplicationController
   def destroy
     @exercise = Exercise.find(params[:id])
     @exercise.destroy
-    redirect_to exercises_url, notice: "Successfully Deleted exercise."
+    redirect_to exercises_url, notice: "Successfully Deleted Exercise."
   end
 
   private
@@ -53,7 +54,7 @@ class ExercisesController < ApplicationController
     end
 
     def exercise_params
-      params.require(:exercise).permit(:name, :exercise_type, :target, :info, :outside_link, :workout_id)
+      params.require(:exercise).permit(:name, :exercise_type, :target, :info, :outside_link, :workout_id, reps_attributes: [:id, :rep_amount, :rep_weight, :duration, :exercise_id, :_destroy])
     
     end
 

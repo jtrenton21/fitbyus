@@ -1,4 +1,18 @@
+<%= form_for(@exercise) do |f| %>
+  <% if @exercise.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@exercise.errors.count, "error") %> prohibited this workout from being saved:</h2>
+      <ul>
+      <% @exercise.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 <fieldset>
+  <%= f.fields_for :workouts do |builder| %>
+  <%= render 'workout_fields', f: builder %>
+  <% end %><br/>
   <%= f.label :name, "Exercise Name" %>
   <%= f.text_field :name %><br/>
   <%= f.label :exercise_type, "Exercise Type" %>
@@ -14,3 +28,7 @@
   <% end %><br/>
   <%= link_to_add_fields "Add Exercise Set", f, :reps %>
 </fieldset>
+ <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
