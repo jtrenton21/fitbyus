@@ -1,0 +1,17 @@
+<% current_user %>
+<div id="stats-current">
+  <a href="<%= following_user_path(current_user) %>">
+    <strong class="following" class="stat">
+     <span id='following'>Following</span>
+     <span class='fstat'> <%= current_user.followed_users.count %></span>
+    </strong>
+    
+  </a>
+  <a href="<%= followers_user_path(current_user) %>">
+    <strong class="followers" class="stat">
+  <span id='follwers'>Followers</span>
+  <span class='fstat'><%= current_user.followers.count %></span>
+    </strong>
+    
+  </a>
+</div>

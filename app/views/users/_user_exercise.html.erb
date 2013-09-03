@@ -1,0 +1,25 @@
+<h2 class='hdash'>My Exercises</h2>
+<table id='tabs' class='table table-bordered'>
+  <thead>
+    <tr>
+      <th id='wname'>Exercise Name</th>
+      <th id='wday'>Target Muscles</th>
+      <th id='enum'>Total Sets</th>
+      <th id='wopt'>Exercise Options</th>
+    </tr>
+  </thead>
+  <tbody>
+           <% @exercises.each do |exercise| %>
+      <tr>
+        <td><%= link_to exercise.name, exercise %></td>
+        <td><%= exercise.target %></td>
+        <td><%= pluralize(exercise.reps.size, "Sets") %></td>
+        <td>
+         <p class='linx'> <%= link_to 'Display', exercise %> </p>
+         <p class='linx'> <%= link_to 'Edit', edit_exercise_path(exercise) %> </p>
+         <p class='linx'> <%= link_to 'Delete', exercise, method: :delete, data: { confirm: 'Are you sure?' } %> </p>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,14 @@
+<!-- This partial is the Fitness Plate that will persist across all pages -->
+<aside id="fitness-plate" class="span3">
+ <section>
+   <h1>
+     <span>User Info</span>
+   </h1>
+   <p>  
+   <!--   this renders following/followers -->
+      <%= render 'shared/stats' %>
+   </p>
+  <%= link_to "Users List", users_path %>
+
+  </section>
+</aside>

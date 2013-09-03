@@ -1,10 +1,10 @@
-<h1>My Workout List</h1><br>
+<h1>Workouts</h1><br>
 
 <table id='tabs' class='table table-bordered'>
   <thead>
     <tr>
       <th id='wname'>Workout Name</th>
-      <th id='wday'>Day</th>
+      <th id='wday'>Workout Type</th>
       <th id='enum'>Number of Exercises</th>
       <th id='wopt'>Workout Options</th>
     </tr>
@@ -13,7 +13,7 @@
     <% @workouts.each do |workout| %>
       <tr>
         <td><%= link_to workout.name, workout %></td>
-        <td><%= workout.day %></td>
+        <td><%= workout.workout_type %></td>
         <td><%= pluralize(workout.exercises.size, "Exercise") %></td>
         <td>
          <p class='linx'> <%= link_to 'Display', workout %> </p>

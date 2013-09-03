@@ -8,4 +8,13 @@ module ApplicationHelper
 	   end
 	  link_to(name, '#', class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")})
 	end
+	
+	def full_title(page_title)
+	    base_title = "Fit By Us"
+	    if page_title.empty?
+	      base_title
+	    else
+	      "#{base_title} | #{page_title}"
+    end
+  end
 end

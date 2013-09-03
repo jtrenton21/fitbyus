@@ -1,22 +1,23 @@
-<h1>My Exercise List</h1><br>
+<h1>Exercises</h1><br>
 
 <table id='tabs2' class='table table-bordered'>
   <thead>
     <tr>
-      <th id='wname'>Workout Name</th>
+      
       <th id='wname'>Exercise Name</th>
-      <th id='etype'>Exercise Type</th>
+      
       <th id='emus'>Target Muscles</th>
       <th id='eset'>Total Sets</th>
       <th id='wopt'>Exercise Options</th>
     </tr>
   </thead>
   <tbody>
-    <% @exercises.each do |exercise| %>
+           <% @exercises.each do |exercise| %>
       <tr>
-        <td></td>
+        
+        
         <td><%= link_to exercise.name, exercise %></td>
-        <td><%= exercise.exercise_type %></td>
+       
         <td><%= exercise.target %></td>
         <td><%= pluralize(exercise.reps.size, "Sets") %></td>
         <td>

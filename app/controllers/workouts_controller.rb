@@ -1,11 +1,20 @@
 class WorkoutsController < ApplicationController
- 
+  before_filter :signed_in_user
+  before_filter :correct_user,   only: :destroy
+  
   def index
+   
     @workouts = Workout.all
+    @exercises = Exercise.all
+
   end
 
   def show
-    @workout = Workout.find(params[:id])
+    # if current_user? 
+      @workout = Workout.find(params[:id])
+    # else
+    #   @workout = current_user.workouts.find(params[:id])
+    # end
   end
 
   def new
@@ -13,13 +22,19 @@ class WorkoutsController < ApplicationController
   end
 
   def create
-    @workout = Workout.new(workout_params)
-    if @workout.save
-      redirect_to @workout, notice: "Successfully Created Workout."
+   # @workout = Workout.new(workout_params)
+   # @workout.save
+   if current_user.workouts.create(workout_params)
+      
+      flash[:success] = "Workout Created!"
+      redirect_to workouts_path
     else
-      render :new
+      @feed_items = []
+      render 'static_pages/home'
     end
   end
+
+  
 
   def edit
     @workout = Workout.find(params[:id])
@@ -49,7 +64,7 @@ class WorkoutsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def workout_params
-      params.require(:workout).permit(:name, :day, exercises_attributes:[:id, :name, :exercise_type, :target, :info, :outside_link, :workout_id, :_destroy, reps_attributes: [:id, :rep_amount, :rep_weight, :duration, :exercise_id, :_destroy]])
+      params.require(:workout).permit(:name, :day, :workout_type, exercises_attributes:[:id, :name, :exercise_type, :target, :info, :outside_link, :workout_id, :_destroy, reps_attributes: [:id, :rep_amount, :rep_weight, :duration, :exercise_id, :_destroy]])
     end
 
     def exercise_params
@@ -60,8 +75,8 @@ class WorkoutsController < ApplicationController
     def rep_params
       params.require(:rep).permit(:rep_amount, :rep_weight, :duration, :exercise_id)
     end
-
-
-
-
+    def correct_user
+      @workout = current_user.workouts.find_by_id(params[:id])
+      redirect_to root_url if @workout.nil?
+    end
 end

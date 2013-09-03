@@ -1,0 +1,64 @@
+<% provide(:title, @user.name) %>
+<div id='profiler'>
+  <section  id="profile">
+    <h1>Profile</h1>
+    <li id='prolist'>
+     <div class="span4">
+        <p id='prostuff' class="text-left profileImg">
+           <span id='prograv'> <%= gravatar_for @user %></span>
+            <span id='proname'><%= @user.name %></span> 
+        </p>
+          <p id='profollow'><%= render 'follow_form' if signed_in? %> </p>      
+      </li>
+      </div>
+
+        <!-- top tabs -->
+        <div class="span4 offset1">
+          <ul id='profileTabs' class="nav nav-tabs">
+            <li class="active">
+              <a href="#stats" data-toggle="tab">Stats</a>
+            </li>
+            <li class>
+              <a href="#sports" data-toggle="tab">Sports/Activities</a>
+            </li>
+          </ul>
+        
+          <!-- content for the top tabs -->
+          <div id="profileTabsContent" class="tab-content">
+            <div class="tab-pane fade active in text-left" id="stats">
+              <p>Gender: <%= current_user.gender %></p>
+              <p>Height: <%= current_user.height %></p>
+              <p>Weight: <%= current_user.weight %></p>
+              <p>BMI: <%= calc_BMI(current_user) %> </p>
+              <p>Fitness Goal: </p>
+            </div>
+            <div class="tab-pane fade text-left" id="sports">
+              <p>Sport 1</p>
+              <p>Sport 2</p>
+              <p>Sport 3</p>
+              <p>Sport 4</p>
+              <p>Sport 5</p>
+            </div>
+          </div>
+        </div>
+      
+
+      <div class="row">
+        <div class="span4 profileCurrent">
+          <h5><%= @user.name %>'s Current Workouts</h4>
+          <p>Try out this workout! <button>Fork</button></p>
+          <p class="text-right"><a href="/workouts">View All Workouts</a></p>
+          
+        </div>
+        <div class="span4 profileCurrent">
+          <h5><%= @user.name %>'s Current Exercises</h4>
+          <p>Dig into this diet! <button>Spoon</button></p>
+
+          <p class="text-right"><a href="/exercises">View All Exercises</a></p>
+        </div>
+
+     
+    </div>
+    </section>
+ 
+</div>

@@ -1,0 +1,37 @@
+<div class="row-fluid">
+  <div><%= render 'shared/fitness_plate' %></div>
+    <section id='dashboard'> 
+      <h1>Dashboard</h1>
+        <ul id='myTab' class="nav nav-tabs">
+           <li class="active">
+             <a href="#status" data-toggle="tab">Status</a>
+           </li>
+           <li class>
+              <a href="#workouts" data-toggle="tab">Workouts</a>
+                   
+
+           </li>
+           <li class>
+              <a href="#exercises" data-toggle="tab">Exercises</a>
+           </li>
+          <li class>
+              <a href="#sports" data-toggle="tab">Sports/Activities</a>
+           </li>
+        </ul> <!-- end, top tabs -->
+     <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade active in" id="status">
+                <h3>Progress</h3>
+                <p>Workout streak: 43 days!</p>
+                <h3>Reputation</h3>
+                <p>24 People have forked your workouts</p>
+                <p>36 People have spooned your diets</p>
+        </div>
+    
+    <div id="workouts" class="tab-pane fade" >   
+           <div id='new_workout'>
+           <%= render 'workouts/index' %>
+
+           </div>
+   </div>
+    </section>
+</div>

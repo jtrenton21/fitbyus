@@ -1,0 +1,12 @@
+<% provide(:title, 'All Users') %>
+<div id='userlist'>
+   <h1 class='ptitle'>Users List</h1>
+   <%= will_paginate %>
+     <ul class="users">
+    <span id='usershow'>
+    <%= render @users %> 
+    	
+	</span>
+    </ul>
+     <%= will_paginate %>
+</div>

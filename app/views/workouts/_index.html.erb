@@ -1,0 +1,42 @@
+<h1 class= 'parth'>My Workout List</h1><br>
+
+<table id='tabs3' class='table table-bordered'>
+  <thead>
+    <tr>
+      <th>Workout Name</th>
+      <th>Workout Type</th>
+      <th>Number of Exercises</th>
+      <th>Workout Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @workouts.each do |workout| %>
+      <tr>
+        <td><%= link_to workout.name, workout %></td>
+        <td><%= workout.workout_type %></td>
+        <td><%= pluralize(workout.exercises.size, "Exercise") %></td>
+        <td>
+         <p class='linx'> <%= link_to 'Display', workout %> </p>
+         <p class='linx'> <%= link_to 'Edit', edit_workout_path(workout) %> </p>
+         <p class='linx'> <%= link_to 'Delete', workout, method: :delete, data: { confirm: 'Are you sure?' } %> </p>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<button id='ecreate' class='btn btn-small btn-primary'><a data-toggle='modal' href='/workout' data-target='#modal'></a><%= link_to 'Create New Workout', new_workout_path %></button>
+<button id='ecreate' class='btn btn-small btn-primary'><%= link_to 'View Exercises', exercises_path %></button>
+
+<div id="modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="myModalLabel">New Workout</h3>
+            </div>
+            <div class="modal-body">              
+                  
+            </div>
+            <div class="modal-footer">
+                    
+           </div> 
+          </div> 

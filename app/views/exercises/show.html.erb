@@ -1,11 +1,14 @@
 <p id="notice"><%= notice %></p>
 <p>
-  <strong>Exercise Name:</strong>
-  <%= @exercise.name %>
+ <strong>Workout Name:</strong>
+ 
+
+
+
 </p>
 <p>
-  <strong>Exercise Type</strong>
-  <%= @exercise.exercise_type %>
+  <strong>Exercise Name:</strong>
+  <%= @exercise.name %>
 </p>
 <p>
 <strong>Target Muscle:</strong> 
@@ -17,10 +20,11 @@
 </p>
 
 <ol class="exercises">
-     <% @exercises.to_a.each do |exercise| %>
+     
+    
   <li>
     <ol class="reps">
-      <% exercise.reps.each do |rep| %> 
+      <% @exercise.reps.each  do |rep| %> 
       <li>
        <strong> Rep Amount:</strong> <%= rep.rep_amount %><br>
        <strong> Rep Weight:</strong> <%= rep.rep_weight %>
@@ -28,9 +32,9 @@
       <% end %>
     </ol>
   </li>
-<% end %>
+
 </ol>
 
 <button id='ecreate' class='btn btn-small btn-primary'><%= link_to 'Edit Exercise', edit_exercise_path(@exercise)%></button>
-<button id='ecreate' class='btn btn-small btn-primary'><%= link_to 'Back to List', exercises_path %></button>
+<button id='ecreate' class='btn btn-small btn-primary'><%= link_to 'Back to Exercises', exercises_path %></button>
 <button id='ecreate' class='btn btn-small btn-primary'><%= link_to 'View Workout List', workouts_path %></button>

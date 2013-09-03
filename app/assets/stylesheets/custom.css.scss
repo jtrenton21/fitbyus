@@ -1,0 +1,679 @@
+@import "bootstrap";
+
+
+/* UNIVERSAL ACROSS APP */
+
+form .field, form .actions {
+  margin: 12px 0;
+}
+
+
+input {
+  height: auto !important;
+}
+
+.ptitle{
+	text-align:center;
+	margin:0 auto;
+}
+
+/********************** mixins, variables, etc. ************************/
+
+$grayMediumLight: #eaeaea;
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/***************************** TWITTER BOOTSTRAP *******************************/
+
+/*#myTabContent{
+
+  width:1000px;
+}*/
+
+.tab-content {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+   }
+
+.nav-tabs {
+    margin-bottom: 0;
+}
+
+.content {
+  display: block;
+}
+
+.timestamp {
+  color: $grayLight;
+}
+
+.thumbnails{
+  
+  padding: 10px 0;
+  border-top: 1px solid #e8e8e8;
+}
+
+.span4{
+  text-align:center;
+}
+
+/***************************** ERRORS AND MESSAGES *******************************/
+
+#flash_notice, #flash_error, #flash_alert {
+  padding: 5px 8px;
+  margin: 10px 0;
+}
+
+#flash_notice {
+  background-color: #CFC;
+  border: solid 1px #6C6;
+}
+
+#flash_error, #flash_alert {
+  background-color: #FCC;
+  border: solid 1px #C66;
+}
+
+.field_with_errors {
+  display: inline;
+}
+
+.error_messages {
+  width: 400px;
+  border: 2px solid #CF0000;
+  padding: 0px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  font-size: 12px;
+}
+
+.error_messages h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 10px;
+  font-size: 12px;
+  margin: 0;
+  background-color: #c00;
+  color: #fff;
+}
+
+.error_messages p {
+  margin: 8px 10px;
+}
+
+.error_messages ul {
+  margin-bottom: 0;
+}
+
+#error_explanation {
+  color:#f00;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .control-group;
+  @extend .error;
+ }
+
+/***************************** HEADER *******************************/
+
+.container2{
+
+	margin:5px 20px 5px 20px;
+	padding-bottom:5px;
+}
+
+#header{
+	background:black;
+	height:85px;
+	padding-top:5px;
+}
+
+
+/************Right Side User Name/Follow ***************/
+
+#heads{
+
+	margin-left:10px;
+	margin-top:5px;
+}
+
+#hstat{
+
+	font-size:20px;
+}	
+
+#hstat2{
+	
+
+	font-size:12px;
+	
+}
+
+#hstat2 a{
+	
+
+	color:white;
+	
+}
+
+.fstat{
+	color:white;
+	margin-right:12px;
+}
+
+
+.container2 h1{
+
+	font-size:18px;
+	margin-top:-5px;
+}
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 15px;
+  font-weight: bold;
+  line-height: 1;
+  &:hover {
+    color: grey;
+    text-decoration: none;
+  }
+}
+
+.user_avatars {
+  overflow: auto;
+  margin-top: 10px;
+  .gravatar {
+    margin: 1px 1px;
+  }
+}
+
+/***************************** FOOTER *******************************/
+
+footer {
+  margin-top: 45px;
+  padding-left:25px;
+  padding-right:25px;
+  padding-top: 5px;
+  border-top: 1px solid $grayMediumLight;
+  color: $grayLight;
+  }
+
+ footer a {
+    color: $gray;
+    &:hover {
+      color: $grayDarker;
+    }
+  }
+  footer small {
+    float: left;
+  }
+  #fright{
+	float: right;
+    list-style: none;
+}
+  #fmid{
+	float: left;
+    list-style: none;
+
+}
+
+.fnav{
+   
+    float: left;
+    margin-left: 10px;
+
+}
+  
+footer img{
+
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+}
+ 
+/***************************** Dashboard *******************************/
+
+.hdash{
+	color:#0088cc;
+	margin-top:10px;
+}
+
+/***************************** User Profiles (users/show.html) *******************************/
+
+#prograv{
+	
+	float:left;
+	margin-right:10px;
+}
+
+#prolist{
+
+	list-style:none;
+}
+
+
+#profollow{
+	
+}
+
+#proname{
+
+	color:#0088cc;
+	font-size:18px;
+	margin-top:5px;
+}
+#prostuff{
+	
+}
+
+/***************************** index.html All Users List *******************************/
+#unam{
+
+	font-size:18px;
+}
+
+#grav{
+
+	float:left;
+	margin-right:5px;
+}
+
+#fcount{
+
+	color:#0088cc;
+}
+
+#usershow li{
+	color:#0088cc;
+	clear:both;
+	float:left;
+	list-style:none;
+	margin-right:15px;
+	margin-top:15px;
+}
+
+#userlist{
+
+	margin-top:10px;
+	margin-bottom:10px;
+
+}
+
+/*users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid $grayLighter;
+    &:last-child {
+      border-bottom: 1px solid $grayLighter;
+    }
+  }
+}*/
+
+
+
+/***************************** SIDEBAR *******************************/
+
+/*
+
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+aside {
+  section {
+    padding: 10px 0;
+    border-top: 1px solid $grayLighter;
+    &:first-child {
+      border: 0;
+      padding-top: 0;
+    }
+    span {
+      display: block;
+      margin-bottom: 3px;
+      line-height: 1;
+    }
+    h1 {
+      font-size: 1.4em;
+      text-align: left;
+      letter-spacing: -1px;
+      margin-bottom: 3px;
+      margin-top: 0px;
+    }
+  }
+}
+
+.gravatar {
+  float: left;
+  margin-right: 10px;
+  height:30px;
+  width:30px;
+}
+
+.stats {
+  overflow: auto;
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid $grayLighter;
+    color: gray;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: $blue;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
+
+.user_avatars {
+  overflow: auto;
+  margin-top: 10px;
+  .gravatar {
+    margin: 1px 1px;
+  }
+}*/
+
+/* forms */
+
+/*input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: auto;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size:10px;
+  @include box_sizing;
+}*/
+
+
+
+/* workouts */
+
+.mpost{
+  width:auto;
+}
+
+/* Fitness Plate */
+
+#fitness-plate {
+  border-right: 1px solid black;
+  height: 730px;
+}
+/* Dashboad */
+
+#dashboard {
+  border-left: 1px solid black;
+  padding-left: 10px;
+
+ 
+}
+
+#forks-and-spoons li {
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+/* Profile */
+
+#profile {
+  padding-left: 10px;
+}
+
+p {
+  line-height: .75em;
+}
+
+#profiler{
+
+	margin:0 auto;
+}
+.profileCurrent {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding-left: 20px;
+  margin-right:10px;
+  margin-top: 20px;
+  a {
+    padding-right: 10px;
+  }
+}
+
+.profileImg {
+  margin-bottom: 0;
+}
+
+
+/* Exercise Form */
+
+.rep_sets input{
+  margin-right:10px;
+  width:50px;
+}
+
+#exercise_set {
+  width:70px;
+}
+
+#exercise_name{
+  width:160px;
+}
+
+#exercise_exercise_type{
+  width:160px;
+}
+
+#exercise_muscle_group{
+  width:160px;
+}
+
+#modal2{
+  height:630px;
+  margin-right:30px;
+  width:800px;
+}
+
+
+
+.navbar-inner{
+  height:55px;
+}
+
+.beta{
+  color:white;
+  font-style:italic; 
+}
+
+
+#topper{
+  margin-top:-15px;
+}
+
+/* New Workouts Tab */
+.wobutton {
+  border:1px solid black;
+  border-radius:10px;
+  background:blue;
+  color:white;
+  font-size:10px;
+  padding:5px;
+  margin-bottom:1px;
+}
+
+#wotable {
+  margin-top:15px;
+}
+
+/* New Exercises Tab */
+
+.exbutton {
+  border:1px solid black;
+  border-radius:10px;
+  background:blue;
+  color:white;
+  font-size:10px;
+  padding:5px;
+  margin-bottom:1px;
+}
+
+#extable {
+  margin-top:15px;
+}
+
+/* exercise show.html */
+
+/* Info Above Table */
+#subt{
+
+  margin-top:10px;
+}
+.toperes{
+  margin-left: auto;
+  margin-right: auto;
+  text-align:center;
+  width:300px;
+}
+
+
+/* Table */
+
+#eshow{
+  margin-left: auto;
+  margin-right: auto;
+  width:555px;
+}
+
+.repw{
+
+  width:150px;
+}
+
+.toplabel{
+
+  font-weight:bold;
+  margin-right:10px;
+}
+
+/* users new.html */
+
+
+
+/*Workouts CSS*/
+
+#wview{
+
+  background:white;
+  box-shadow:grey;
+  margin-right:10px;
+  text-decoration:none;
+
+}
+
+#ecreate{
+  background:white;
+  box-shadow:grey;
+  margin-right:10px;
+  text-decoration:none;
+}
+.linx{
+  
+  float:left;
+  margin-right:10px;
+}
+
+
+/* Table */
+
+#tabs{
+
+  width:800px;
+ 
+}
+#tabs2{
+
+  width:1000px;
+ 
+}
+
+#tabs3{
+  font-size:10px;
+  width:600px;
+ 
+}
+
+.parth{
+
+  
+
+}
+
+
+#wname{
+ 
+ width:220px;
+ 
+}
+
+#wday{
+
+
+  
+}
+
+#enum{
+
+  width:165px;
+}
+
+#wopt{
+
+  width:165px;
+ 
+}
+
+
+#wday input {
+
+  width:75px;
+}
+
+#reps input {
+
+  width:75px;
+}
+
+.article {
+  h2 {
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 3px;
+  }
+}
+
+
+
+

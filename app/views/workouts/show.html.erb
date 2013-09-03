@@ -4,14 +4,13 @@
   <%= @workout.name %>
 </p>
 <p>
-  <strong>Day:</strong>
-  <%= @workout.day %>
+  <strong>Workout Type:</strong>
+  <%= @workout.workout_type %>
 </p>
 <ol class="exercises">
 <% @workout.exercises.each do |exercise| %>
   <li>
    <strong>Exercise Name:</strong> <%= exercise.name %><br>
-   <strong>Exercise Type:</strong> <%= exercise.exercise_type %><br>
    <strong>Target Muscle(s):</strong> <%= exercise.target %><br>
    <strong>Notes:</strong> <%= exercise.info %><br>
     <ol class="reps">
@@ -27,4 +26,4 @@
 </ol>
 
 <button id='ecreate' class='btn btn-small btn-primary'><%= link_to 'Edit Workout', edit_workout_path(@workout) %></button>
-<button id='ecreate' class='btn btn-small btn-primary'><%= link_to 'Back to List', workouts_path %></button>
+<button id='ecreate' class='btn btn-small btn-primary'><%= link_to 'Back to Workouts', workouts_path %></button>

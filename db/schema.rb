@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130830190535) do
+ActiveRecord::Schema.define(version: 20130902190209) do
+
+  create_table "activities", force: true do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "exercises", force: true do |t|
     t.string   "name"
@@ -20,6 +27,13 @@ ActiveRecord::Schema.define(version: 20130830190535) do
     t.text     "info"
     t.string   "outside_link"
     t.integer  "workout_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "relationships", force: true do |t|
+    t.integer  "follower_id"
+    t.integer  "followed_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -33,11 +47,47 @@ ActiveRecord::Schema.define(version: 20130830190535) do
     t.datetime "updated_at"
   end
 
+  create_table "routins", force: true do |t|
+    t.integer  "exercise_id"
+    t.integer  "workout_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "userexercises", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "exercise_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.string   "remember_token"
+    t.boolean  "admin"
+    t.integer  "height"
+    t.integer  "weight"
+    t.integer  "bday"
+    t.string   "gender"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "userworkouts", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "workout_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "workouts", force: true do |t|
     t.string   "name"
     t.integer  "day"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "workout_type"
   end
 
 end

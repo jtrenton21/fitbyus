@@ -1,0 +1,48 @@
+<% provide(:title, 'Sign Up') %>
+<h1>Account Registration</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= simple_form_for @user, :html => {class: "span4"} do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+     
+      <div id="section-1" class="form-section active">
+
+      <h3>My Info</h3>
+        <%= f.label 'Name' %>
+        <%= f.text_field :name %>
+
+        <%= f.label 'Email' %>
+        <%= f.text_field :email %>
+
+        <%= f.label 'Password' %>
+        <%= f.password_field :password %>
+
+        <%= f.label 'Password Confirmation' %>
+        <%= f.password_field :password_confirmation %>
+
+      </div>
+
+      <div id="section-2" class="form-section">
+
+        <h3>My Stats</h3>
+        <%= f.label 'Gender' %>
+        <%= f.input_field :gender, collection: [:Male, :Female]  %>
+        
+        <%= f.label 'Birthday' %>
+        <%= f.input_field :bday, collection: 18..99, prompt: "Select Age" %>
+        
+        <%= f.label 'Height (Inches)' %>
+        <%= f.input_field :height, collection: "36".."90" , prompt: "Select Height" %>
+
+        <%= f.label 'Weight' %>
+        <%= f.text_field :weight %>
+
+      </div>
+      <div id="section-3" class="form-section">
+        <%= f.submit "Create My Account", class: "btn btn-small btn-primary" %>
+
+      </div>
+    <% end %>
+  </div>
+</div>

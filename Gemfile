@@ -25,7 +25,7 @@ end
 
 group :production do
 
-  gem 'pg', '0.12.2'
+gem 'pg', '0.12.2'
 
 end
 
@@ -41,5 +41,4 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'simple_form'
 
-
-#gem 'johnny'
+gem 'jquery-ui-rails'
