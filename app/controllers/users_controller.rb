@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   include WorkoutsHelper
- 
+  
 
   before_filter :signed_in_user,
                 only: [:index, :edit, :update, :destroy, :following, :followers]
@@ -16,12 +16,15 @@ class UsersController < ApplicationController
   def dashboard
     @workouts = User.find(current_user.id).workouts
     @exercises = User.find(current_user.id).exercises
-    
-
-    @workout = Workout.new
-    @exercise = Exercise.new
+   
+    # @workout = Workout.new
+    # @exercise = Exercise.new
   end
-
+  
+  def newworkout
+    @workout = User.find(current_user.id).workouts.includes(params[:id]).new
+  end
+ 
   def show
     @user = User.find(params[:id])
     @workouts = @user.workouts.paginate(page: params[:page])
@@ -83,7 +86,7 @@ class UsersController < ApplicationController
 
     def user_params
 
-      params.require(:user).permit(:name, :email, :gender, :bday, :height, :weight, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :gender, :bday, :height, :weight, :password, :password_confirmation, userroutins_attributes:[:id, :routin_id])
     end
 
     def correct_user
@@ -94,4 +97,7 @@ class UsersController < ApplicationController
     def admin_user
       redirect_to(root_url) unless current_user.admin?
     end
+
+
+
 end

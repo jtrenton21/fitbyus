@@ -1,0 +1,13 @@
+<fieldset>
+  <%= f.label :name, "Exercise Name" %>
+  <%= f.text_field :name %><br/>
+  <%= f.input :target, collection: ["Back","Chest","Biceps","Triceps","Shoulders","Calves","Hamstring","Quads","Glutes"], prompt: "Select One" %><br/>
+  <%= f.label :info, "Additional Info" %>
+  <%= f.text_area :info %><br/>
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "Remove Exercise", '#', class: "remove_fields" %><br/>
+  <%= f.fields_for :reps do |builder| %>
+    <%= render 'rep_fields', f: builder %>
+  <% end %><br/>
+  <%= link_to_add_fields "Add Set Info", f, :reps %>
+</fieldset>

@@ -1,0 +1,27 @@
+<%= simple_form_for(@workout) do |f| %>
+  <% if @workout.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@workout.errors.count, "error") %> prohibited this workout from being saved:</h2>
+      <ul>
+      <% @workout.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+  </div>
+  <div id='wday' class="field">
+  
+  <%= f.input :workout_type, collection: ["Weight Training", "Cardio", "Yoga", "General Health", "CrossFit"]%><br>
+  </div>
+  <%= f.fields_for :exercises do |builder| %>
+    <%= render 'exercise_fields', f: builder %>
+  <% end %><br>
+  <%= link_to_add_fields "Add Exercise", f, :exercises %>
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

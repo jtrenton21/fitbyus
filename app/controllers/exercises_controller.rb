@@ -7,6 +7,12 @@ class ExercisesController < ApplicationController
     @exercises = Exercise.all
   end
 
+  def userexercise
+    @workouts = User.find(current_user.id).workouts
+    @exercises = User.find(current_user.id).exercises
+  end
+
+
   def show
     # if current_user? 
       @exercise = Exercise.find(params[:id])
@@ -16,7 +22,9 @@ class ExercisesController < ApplicationController
   end
 
   def new
-    @exercise = Exercise.new
+   @exercise = User.find(current_user.id).exercises.new
+   @workout = User.find(current_user.id).workouts.new
+    
   end
 
  def create

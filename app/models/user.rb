@@ -1,11 +1,14 @@
 class User < ActiveRecord::Base
   has_secure_password
-  
+  has_many :routins, through: :userroutins 
+  has_many :userroutins
   has_many :workouts, through: :userworkouts
   has_many :userworkouts
   has_many :exercises, through: :userexercises
   has_many :userexercises
-
+  
+  accepts_nested_attributes_for :userworkouts, allow_destroy: true
+  accepts_nested_attributes_for :userexercises, allow_destroy: true 
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_users, through: :relationships, source: :followed
   has_many :reverse_relationships, foreign_key: "followed_id",

@@ -1,5 +1,5 @@
+<h1>Workouts</h1><br>
 
-<h2 class='hdash'> My Workouts</h2>
 <table id='tabs' class='table table-bordered'>
   <thead>
     <tr>
@@ -9,14 +9,14 @@
       <th id='wopt'>Workout Options</th>
     </tr>
   </thead>
-  <tbody>   
-     <% @workouts.each do |workout| %>
+  <tbody>
+    <% @workouts.each do |workout| %>
       <tr>
         <td><%= link_to workout.name, workout %></td>
         <td><%= workout.workout_type %></td>
         <td><%= pluralize(workout.exercises.size, "Exercise") %></td>
         <td>
-         <p class='linx'> <%= link_to 'Display', userworkout_path %> </p>
+         <p class='linx'> <%= link_to 'Display', workout %> </p>
          <p class='linx'> <%= link_to 'Edit', edit_workout_path(workout) %> </p>
          <p class='linx'> <%= link_to 'Delete', workout, method: :delete, data: { confirm: 'Are you sure?' } %> </p>
         </td>
@@ -25,3 +25,5 @@
   </tbody>
 </table>
 
+<button id='ecreate' class='btn btn-small btn-primary'><%= link_to 'Create New Workout', newworkout_path %></button>
+<button id='ecreate' class='btn btn-small btn-primary'><%= link_to 'View Exercises', userexercise_path %></button>
